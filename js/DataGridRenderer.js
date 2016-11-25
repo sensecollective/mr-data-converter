@@ -122,14 +122,14 @@ var DataGridRenderer = {
   
   
   //---------------------------------------
-  // JSON properties
+  // Javascript Object
   //---------------------------------------
   
   json: function (dataGrid, headerNames, headerTypes, indent, newLine) {
     //inits...
     var commentLine = "//";
     var commentLineEnd = "";
-    var outputText = "[";
+    var outputText = "var mrDataConverterObj = JSON.parse('[";
     var numRows = dataGrid.length;
     var numColumns = headerNames.length;
     
@@ -149,9 +149,9 @@ var DataGridRenderer = {
         if (j < (numColumns-1)) {outputText+=","};
       };
       outputText += "}";
-      if (i < (numRows-1)) {outputText += ","+newLine};
+      if (i < (numRows-1)) {outputText += ","};
     };
-    outputText += "]";
+    outputText += "]')";
     
     return outputText;
   },
